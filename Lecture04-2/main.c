@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIZE 5000
+#define SIZE 10000
 
 int main() {
 	srand((unsigned int)time(NULL));
@@ -16,7 +16,7 @@ int main() {
 		arrA[i] = -1;
 		arrB[i] = -1;
 	}
-
+	
 	for (i = 0; i < SIZE; i++)
 	{
 		int is_duplicate = 0;
@@ -24,7 +24,7 @@ int main() {
 		for (int j = 0; j <= i; j++)
 		{
 			if (rand_value == arrA[j]) {
-				is_duplicate++;
+				is_duplicate++; 
 				break;
 			}
 		}
@@ -38,21 +38,12 @@ int main() {
 
 	for (i = 0; i < SIZE; i++)
 	{
-		int index = -1;
-		int j;
-		for (j = 0; j < SIZE; j++)
-		{
-			if (arrA[j] == i) {
-				index = j;
-				break;
-			}
-		}
-		arrB[i] = index;
+		arrB[arrA[i]] = i;
 	}
 
 	for (i = 0; i < SIZE; i++)
 	{
-		printf("%4d [a: %4d  b: %4d]\n", i, arrA[i], arrB[i]);
+		printf("index: %4d [a: %4d  b: %4d]\n", i, arrA[i], arrB[i]);
 	}
 
 	return 0;
